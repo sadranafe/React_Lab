@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app.js" defer></script>
+
+    <style>
+        ::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class = "flex w-full flex-wrap justify-center items-center p-2 h-screen content-center">
+        <div class = "w-5/12 bg-neutral-700 rounded-xl p-2">
+            <div class = "flex text-white flex-wrap justify-center items-center p-5 pb-10">
+                <div class = "w-full text-center mb-3 py-2">
+                    <h1 class = "text-4xl">Student Panel</h1>
+                </div>
+                <div>
+                    <input type="text" placeholder="student name ..." class = "p-3 px-5 m-2 bg-zinc-50 text-black rounded-lg outline-none text-sm">
+                    <button class = "p-2 bg-neutral-800 rounded-lg px-3">Add</button>
+                </div>
+            </div>
+        
+            <div class = "w-full text-center p-3 pb-7 text-white">
+                <div class = "w-full text-start px-5">
+                    <p>students :</p>
+                </div>
+                <ul id="root" class ="h-56 overflow-scroll"></ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
