@@ -1,6 +1,9 @@
 # React + Vite
+in this project, by clicking on a box, the backGround Color of the box chnages.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## tech :
+-   tailwindCss
+-   Vite + SWC
 
 Currently, two official plugins are available:
 
