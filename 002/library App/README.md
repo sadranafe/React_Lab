@@ -1,6 +1,7 @@
 # Library App
 
 This is a library app built using React, React Router, Tailwind CSS, and Vite.
+this is the demo of the project : [see the demo](https://libraryappsn.vercel.app/)
 
 ## Features
 The library app offers the following features:
