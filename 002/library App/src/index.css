@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "font";
+    src: url("/medium.woff");
+}
+
+*{
+    font-family: "font";
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.lib_bg_content{
+    background-image: url("/library_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    background-color: #5f5f5f;
+}
