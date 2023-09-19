@@ -1,6 +1,5 @@
-import { Switch , Route , Redirect } from "react-router-dom";
+import { Routes , Route , Navigate } from "react-router-dom";
 
-import { useState } from "react";
 import Nav from "./components/nav/nav";
 import Home from "./pages/home";
 import Books from "./pages/Books";
@@ -13,30 +12,16 @@ const App = () => {
   return (
     <>
       <Nav/>
+      <Routes>
+        <Route path = "/" element = { <Home/> }/>
+        <Route path = "/books/:id" element = { <BookDetail/> } />
+        <Route path = "/books" element = { <Books/> } />
+        <Route path = "/about-us" element = { <AboutUs/> } />
 
-      <Switch>
-        <Route path = "/" exact>
-          <Home/>
-        </Route>
-
-        <Route path = "/books/:id">
-          <BookDetail/>
-        </Route>
-
-        <Route path = "/books">
-          <Books/>
-        </Route>
-
-        <Route path = "/about-us">
-          <AboutUs/>
-        </Route>
-
-        <Route path = "/404" exact>
-          <NotFound/>
-        </Route>
-
-        <Redirect to = "/404"/>
-      </Switch>
+        <Route path = "/404" element = { <NotFound/> } />
+        <Route path = "*" element = { <Navigate to = "/404"/> } />
+        
+      </Routes>
 
       <Footer/>
     </>

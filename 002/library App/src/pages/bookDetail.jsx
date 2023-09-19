@@ -1,15 +1,15 @@
 import { useEffect } from "react";
-import { useParams , useHistory } from "react-router-dom";
+import { useParams , useNavigate } from "react-router-dom";
 import DUMMY_DATA from "../components/DUMMY_DATA";
 import HighlightedBook from "../components/highlightedBook";
 
 const BookDetail = () => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const { id } = useParams()
     const book = DUMMY_DATA[id - 1]
 
     if(DUMMY_DATA.length === 0 ){
-        history.replace("/books")
+        navigate("/books" , {replace : true})
     }
 
     const highlightedImgSrc = book.imgSrc = `/image/${id}.jpg`

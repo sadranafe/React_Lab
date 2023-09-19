@@ -26,15 +26,15 @@ const Nav = () => {
 
                 <div className = 'hidden capitalize md:flex md:flex-wrap justify-center items-center text-black max-[929px]:w-8/12 min-[930px]:w-10/12' dir = "rtl">
                     <div className = 'mx-2'>
-                        <NavLink to = "/" exact activeClassName = "after:bg-fuchsia-700 after:w-16" className = 'p-3 after:w-0 after:h-0.5 after:bg-slate-200 after:absolute relative after:bottom-0 after:right-0 px-5 hover:text-fuchsia-400 transition-all'>خانه</NavLink>
+                        <NavLink to = "/" className = { ({isActive}) => isActive ? "after:bg-fuchsia-700 after:w-16 p-3 after:h-0.5 after:absolute relative after:bottom-0 after:right-0 px-5 transition-all" : 'p-3 after:w-0 after:h-0.5 after:bg-slate-200 after:absolute relative after:bottom-0 after:right-0 px-5 hover:text-fuchsia-400 transition-all'}>خانه</NavLink>
                     </div>
 
                     <div className = 'mx-2'>
-                        <NavLink to = "/books" activeClassName = "after:bg-fuchsia-700 after:w-[85px]" className = 'p-3 px-5 after:w-0  after:h-0.5 after:bg-slate-200 after:absolute relative after:bottom-0 after:right-0 hover:text-fuchsia-400 transition-all'>کتاب ها</NavLink>
+                        <NavLink to = "/books" className = { ({isActive}) => isActive ? "after:bg-fuchsia-700 after:w-[85px] p-3 after:h-0.5 after:absolute relative after:bottom-0 after:right-0 px-5 transition-all" : 'p-3 after:w-0 after:h-0.5 after:bg-slate-200 after:absolute relative after:bottom-0 after:right-0 px-5 hover:text-fuchsia-400 transition-all'}>کتاب ها</NavLink>
                     </div>
 
                     <div className = 'mx-2'>
-                        <NavLink to = "/about-us" activeClassName = "after:bg-fuchsia-700 after:w-24" className = 'p-3 px-5 after:w-0 after:h-0.5 after:bg-slate-200 after:absolute relative after:bottom-0 after:right-0 hover:text-fuchsia-400 transition-all'>درباره ما</NavLink>
+                        <NavLink to = "/about-us" className = { ({isActive}) => isActive ? "after:bg-fuchsia-700 after:w-24 p-3 after:h-0.5 after:absolute relative after:bottom-0 after:right-0 px-5 transition-all" : 'p-3 after:w-0 after:h-0.5 after:bg-slate-200 after:absolute relative after:bottom-0 after:right-0 px-5 hover:text-fuchsia-400 transition-all'} >درباره ما</NavLink>
                     </div>
                 </div>
 
@@ -45,15 +45,15 @@ const Nav = () => {
 
                 <div className = {menuIsOpen ? 'md:hidden capitalize flex max-h-48 overflow-hidden flex-wrap justify-center items-center transition-all w-full' : 'md:hidden capitalize flex max-h-0 overflow-hidden flex-wrap justify-center items-center transition-all w-full'}>
                     <div className = 'mx-2 w-full my-2 p-1'>
-                        <NavLink to = "/" exact activeClassName = "bg-fuchsia-400" className = 'p-2 px-3 rounded-xl transition-all'>خانه</NavLink>
+                        <NavLink to = "/" className = { ({isActive}) => isActive ? "text-fuchsia-600 shadow-md p-2 px-3 rounded-xl transition-all" : 'p-2 px-3 rounded-xl transition-all'}>خانه</NavLink>
                     </div>
 
                     <div className = 'mx-2 w-full my-2 p-1'>
-                        <NavLink to = "/books" activeClassName = "bg-fuchsia-400" className = 'p-2 px-3 rounded-xl transition-all'>کتاب ها</NavLink>
+                        <NavLink to = "/books" className = { ({isActive}) => isActive ? "text-fuchsia-600 shadow-md p-2 px-3 rounded-xl transition-all" : 'p-2 px-3 rounded-xl transition-all'}>کتاب ها</NavLink>
                     </div>
 
                     <div className = 'mx-2 w-full my-2 p-1'>
-                        <NavLink to = "/about-us" activeClassName = "bg-fuchsia-400" className = 'p-2 px-3 rounded-xl  transition-all'>درباره ما</NavLink>
+                        <NavLink to = "/about-us" className = { ({isActive}) => isActive ? "text-fuchsia-600 shadow-md p-2 px-3 rounded-xl transition-all" : 'p-2 px-3 rounded-xl transition-all'}>درباره ما</NavLink>
                     </div>
                     
                     <div className = "pt-5 min-[390px]:hidden">
