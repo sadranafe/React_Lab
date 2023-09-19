@@ -43,7 +43,7 @@ const Books = () => {
                     <div className = "w-8/12 flex flex-wrap justify-between items-center text-center">
                         <p className = "capitalize">
                             <i className = "bx bx-book-alt text-xl translate-y-1 mr-2"></i>
-                            books
+                            کتاب ها
                         </p>
                     </div>
 
