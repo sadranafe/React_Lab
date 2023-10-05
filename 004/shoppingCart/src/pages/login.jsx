@@ -1,17 +1,20 @@
-import React from 'react';
+import { Outlet , NavLink } from "react-router-dom";
 
 const Login = () => {
     return (
         <>
-            <form action = "#">
-                <div className = 'm-2'>
-                    <input type = "email" placeholder = 'your email' className = 'bg-slate-200 p-2 px-3 rounded-lg outline-none'/>
+            
+            <div className = "w-full flex flex-wrap justify-center items-center content-center h-screen absolute top-0 -z-10">
+               
+                <div className = "p-3 w-full text-center">
+                    <NavLink to = 'login' className = { ({isActive}) => isActive ?  'capitalize bg-neutral-700 p-4 rounded-l-lg text-white' : "capitalize bg-neutral-400 p-4 rounded-l-lg"}>login</NavLink>
+                    <NavLink to = 'register' className = { ({isActive}) => isActive ?  'capitalize bg-neutral-700 p-4 rounded-r-lg text-white' : "capitalize bg-neutral-400 p-4 rounded-r-lg"}>register</NavLink>
                 </div>
 
-                <div className = 'm-2'>
-                    <input type = "password" placeholder = 'your password'  className = 'bg-slate-200 p-2 px-3 rounded-lg outline-none'/>
+                <div className = "mt-10 h-72">
+                    <Outlet/>
                 </div>
-            </form>   
+            </div>
         </>
     );
 };

@@ -40,7 +40,7 @@ const Nav = () => {
 
 
                 <div className = 'capitalize min-[930px]:w-1/12 w-4/12 md:w-2/12 max-[929px]:text-sm flex flex-wrap justify-end items-center'>
-                    <Link to = "/cart" className = 'transition-all mx-2 px-1 text-2xl bg-r ed-300'>
+                    <Link to = "/cart" className = 'transition-all mr-4 mt-1 px-1 text-2xl bg-r ed-300'>
                         <i className = "bx bx-cart"></i>
                     </Link>
 
