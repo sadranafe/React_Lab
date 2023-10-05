@@ -1,7 +1,20 @@
 import { Link } from 'react-router-dom';
 
-const HighLightedProduct = ( {title , description , price , rating , image} ) => {
+const HighLightedProduct = ( {title , description , price , rating , image , onCartHandler , id} ) => {
     const rateArr = Array.from({length : rating.rate})
+
+    const addToCartHandler = () => {
+        const data = {
+            id,
+            title,
+            description,
+            price,
+            rating,
+            image
+        }
+
+        onCartHandler(data)
+    }
 
     return (
         <>
@@ -43,7 +56,7 @@ const HighLightedProduct = ( {title , description , price , rating , image} ) =>
                     </div>
 
                     <div className = 'w-full mt-10'>
-                        <button className = 'p-2 px-3 hover:border-b-2 border-b-2 border-transparent hover:border-gray-300 transition-all rounded-full'>add to cart</button>
+                        <button onClick = {addToCartHandler} className = 'p-2 px-3 hover:border-b-2 border-b-2 border-transparent hover:border-gray-300 transition-all rounded-full'>add to cart</button>
                     </div>
                 </div>
             </div>           

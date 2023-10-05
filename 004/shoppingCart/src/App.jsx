@@ -31,7 +31,7 @@ const App = () => {
       <Routes>
         <Route path = "/" element = {<Home/>}/>
         <Route path = "/products" element = {<Products onGetData = {dataHandler}/>}/>
-        <Route path = "/products/:id" element = {<ProductDetails dummyData = {DUMMYDATA}/>}/>
+        <Route path = "/products/:id" element = {<ProductDetails dummyData = {DUMMYDATA} onCartHandler = {cartHandler}/>}/>
         <Route path = "/about-us" element = {<AboutUs/>}/>
         
         <Route path = "/login/*" element = {<Login/>}>
@@ -42,7 +42,7 @@ const App = () => {
         <Route path = "/login" element = {<Navigate to = '/login/login'/>} />
         <Route path = "/cart" element = {<Cart data = {DUMMYDATA_CART}/>} />
         <Route path = "*" element = {<NotFound/>}/>
-        
+
       </Routes>
     </>
   )
