@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom';
+import CartContext from '../contexts/cartContext';
+import { useContext } from 'react';
 
-const HighLightedProduct = ( {title , description , price , rating , image , onCartHandler , id} ) => {
+const HighLightedProduct = ( {title , price , description ,image , id , rating} ) => {
     const rateArr = Array.from({length : rating.rate})
 
+    const { cartData , setCartData } = useContext(CartContext);
+
+    const enteredDataIsInCart = cartData.find(item =>{
+        return item.id === id
+    })
+
     const addToCartHandler = () => {
-        const data = {
+        const enteredData = {
             id,
             title,
             description,
@@ -12,8 +20,9 @@ const HighLightedProduct = ( {title , description , price , rating , image , onC
             rating,
             image
         }
-
-        onCartHandler(data)
+        setCartData(prevData => {
+            return [...prevData , enteredData]
+        })
     }
 
     return (
@@ -56,7 +65,7 @@ const HighLightedProduct = ( {title , description , price , rating , image , onC
                     </div>
 
                     <div className = 'w-full mt-10'>
-                        <button onClick = {addToCartHandler} className = 'p-2 px-3 hover:border-b-2 border-b-2 border-transparent hover:border-gray-300 transition-all rounded-full'>add to cart</button>
+                        <button onClick = {addToCartHandler} disabled = {!enteredDataIsInCart ? false : true} className = 'disabled:bg-red-400 disabled:cursor-not-allowed p-2 px-3 hover:border-b-2 border-b-2 border-transparent hover:border-gray-300 transition-all rounded-full'>add to cart</button>
                     </div>
                 </div>
             </div>           

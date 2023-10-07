@@ -1,7 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
 import CartProduct from '../components/cartProduct';
+import CartContext from '../contexts/cartContext';
 
-const Cart = ({data}) => {
+
+const Cart = () => {
+    const { cartData , setCartData } = useContext(CartContext)
+
     return (
         <>
             <div className = 'w-full h-[88vh] flex flex-wrap justify-center items-center'>
@@ -12,8 +16,8 @@ const Cart = ({data}) => {
 
                     <div className = 'h-full px-4 pb-14 overflow-scroll'>
                         {
-                            data.map((item , index) =>
-                                <CartProduct key = {index} title = {item.title} price = {item.price} img = {item.image}/>
+                            cartData.map((item , index) =>
+                                <CartProduct key = {index} id = {item.id} title = {item.title} price = {item.price} img = {item.image}/>
                             )
                         }
                     </div>

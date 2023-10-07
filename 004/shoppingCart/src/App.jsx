@@ -1,4 +1,6 @@
 import { Route , Routes , Navigate } from "react-router-dom";
+import { useState } from "react";
+import CartContext from "./contexts/cartContext";
 
 import Nav from "./components/nav/nav";
 import Home from "./pages/home";
@@ -10,7 +12,6 @@ import Login from "./pages/login";
 import LoginPage from "./components/loginPage/loginPage";
 import RegisterPage from "./components/loginPage/registerPage";
 import NotFound from "./pages/notFound";
-import { useState } from "react";
 
 const App = () => {
   const [DUMMYDATA , setDUMMYDATA] = useState([]);
@@ -20,18 +21,22 @@ const App = () => {
     setDUMMYDATA(data)
   }
 
-  const cartHandler = data => {
-    setDUMMYDATA_CART(data)
-  }
-
   return(
     <>
-      <Nav/>
+      <CartContext.Provider value = {{cartData : DUMMYDATA_CART , setCartData : setDUMMYDATA_CART}}>
+        <Nav/>
+      </CartContext.Provider>
 
       <Routes>
         <Route path = "/" element = {<Home/>}/>
         <Route path = "/products" element = {<Products onGetData = {dataHandler}/>}/>
-        <Route path = "/products/:id" element = {<ProductDetails dummyData = {DUMMYDATA} onCartHandler = {cartHandler}/>}/>
+
+        <Route path = "/products/:id" element = {
+          <CartContext.Provider value = {{cartData : DUMMYDATA_CART , setCartData : setDUMMYDATA_CART}}>
+            <ProductDetails dummyData = {DUMMYDATA} />
+          </CartContext.Provider>
+        }/>
+
         <Route path = "/about-us" element = {<AboutUs/>}/>
         
         <Route path = "/login/*" element = {<Login/>}>
@@ -40,7 +45,13 @@ const App = () => {
         </Route>
 
         <Route path = "/login" element = {<Navigate to = '/login/login'/>} />
-        <Route path = "/cart" element = {<Cart data = {DUMMYDATA_CART}/>} />
+
+        <Route path = "/cart" element = {
+          <CartContext.Provider value = {{cartData : DUMMYDATA_CART , setCartData : setDUMMYDATA_CART}}>
+            <Cart/>
+          </CartContext.Provider>
+        }/>
+
         <Route path = "*" element = {<NotFound/>}/>
 
       </Routes>

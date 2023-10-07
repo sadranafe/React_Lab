@@ -1,9 +1,9 @@
-import React from 'react';
+import { Link } from "react-router-dom";
 
-const CartProduct = ({img , title , price}) => {
+const CartProduct = ({img , title , price , id}) => {
     return (
         <>
-            <div className = 'flex flex-wrap justify-between items-center bg-re d-600 m-3 rounded-3xl shadow-md bg-neutral-50 overflow-hidden pl-3'>
+            <Link to = {`/products/${id}`} className = 'flex flex-wrap justify-between items-center bg-re d-600 m-3 rounded-3xl shadow-md bg-neutral-50 overflow-hidden pl-3'>
                 <div className = 'w-16 h-16'>
                     <img src = {img} alt = {title} className = 'w-full h-full' />
                 </div>
@@ -21,7 +21,7 @@ const CartProduct = ({img , title , price}) => {
                         <i className = 'bx bx-trash'></i>
                     </button>
                 </div>
-            </div>
+            </Link>
         </>
     );
 };

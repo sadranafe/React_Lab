@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState , useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import NavLogo from "./acmLogo";
+import CartContext from "../../contexts/cartContext";
 
 const Nav = () => {
     const [menuIsOpen , setMenuIsOpen] = useState(false)
+    const {cartData , setCartData} = useContext(CartContext)
 
     const menuHandler = () => {
         setMenuIsOpen(!menuIsOpen)    
@@ -40,9 +42,13 @@ const Nav = () => {
 
 
                 <div className = 'capitalize min-[930px]:w-1/12 w-4/12 md:w-2/12 max-[929px]:text-sm flex flex-wrap justify-end items-center'>
-                    <Link to = "/cart" className = 'transition-all mr-4 mt-1 px-1 text-2xl bg-r ed-300'>
-                        <i className = "bx bx-cart"></i>
-                    </Link>
+                    <div className = "relative mr-4 mt-1">
+                        <Link to = "/cart" className = 'transition-all px-1 text-2xl relative'>
+                            <i className = "bx bx-cart"></i>
+                        </Link>
+
+                        <p className = "text-xs text-center rounded-full p-0 absolute -top-2 right-2.5">{cartData.length}</p>
+                    </div>
 
                     <Link to = "/login" className = 'bg-fuchsia-600 hover:bg-black text-white transition-all p-2 rounded-xl'>login</Link>
                 </div>
