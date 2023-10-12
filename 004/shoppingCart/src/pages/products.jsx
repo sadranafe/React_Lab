@@ -43,7 +43,7 @@ const Products = ({onGetData}) => {
 
     return (
         <>
-            <div className = 'flex flex-wrap justify-center items-center content-center'>
+            <div className = 'flex flex-wrap justify-center items-center content-center bg-neutral-50'>
                 <div className = 'w-full flex flex-wrap justify-center items-center select-none my-3 mt-6'>
                     
                     <div className = 'w-8/12 flex flex-wrap justify-between items-center text-center'>

@@ -13,7 +13,7 @@ const Nav = () => {
     
     return (
         <>
-            <div className = 'flex flex-wrap justify-between items-center shadow-sm shadow-neutral-100 bg-neutral-50 p-4'>
+            <div className = 'flex flex-wrap justify-between items-center bg-neutral-50 shadow-sm shadow-gray-100 p-4'>
 
                 <div className = 'flex flex-wrap w-6/12 min-[930px]:flex-nowrap items-center justify-start md:w-2/12 min-[930px]:w-1/12'>
                     
