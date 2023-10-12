@@ -12,8 +12,8 @@ const Products = ({onGetData}) => {
     const controller = new AbortController();
 
     useEffect( () =>{
-        axios.get("https://fakestoreapi.com/products" , {signal : controller.signal})
-        .then(response => setDUMMYDATA(response.data))
+        axios.get("https://dummyjson.com/products" , {signal : controller.signal})
+        .then(response => setDUMMYDATA(response.data.products))
         .catch(err => {
             if(err.name === 'AbortError'){
                 setError(err.message)
@@ -26,7 +26,6 @@ const Products = ({onGetData}) => {
             controller.abort();
         }
     },[DUMMYDATA])
-    
 
     const filteredProductsHandler = filteredData => {
         setFilteredView(filteredData)
@@ -62,8 +61,8 @@ const Products = ({onGetData}) => {
                     isLoading ? 
                     <i className = 'bx bx-loader-alt bx-spin text-5xl mt-10'></i>
                     :
-                    filteredProduct.map(item =>
-                        <Product key = {item.id} onFilterHandler = {filteredProductsHandler} id = {item.id} title = {item.title} img = {item.image} price = {item.price} category = {item.category}/>    
+                    filteredProduct.map((item , index) =>
+                        <Product key = {item.id} onFilterHandler = {filteredProductsHandler} id = {index + 1} title = {item.title} img = {item.images[0]} price = {item.price} category = {item.category}/>    
                     )
                 }
             </div>
