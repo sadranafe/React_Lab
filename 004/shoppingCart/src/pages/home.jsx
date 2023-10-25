@@ -41,7 +41,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className = "shopping-vector"></div>
+                    <div className = "bg-[url('./shopping_vector.png')] w-6/12 h-96 p-32 bg-cover object-cover bg-center bg-no-repeat"></div>
                 </div>
             
                 <div className = "flex flex-wrap justify-center items-center mb-20 mt-10">

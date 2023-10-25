@@ -10,11 +10,6 @@ input::-webkit-inner-spin-button , input::-webkit-outer-spin-button{
     appearance: none;
 }
 
-.shopping-vector{
-    background-image: url('./shopping_vector.png');
-    @apply w-6/12 h-96 p-32 bg-cover object-cover bg-center bg-no-repeat;
-}
-
 /* Swiper */
 
 .swiper-pagination-bullet-active{
