@@ -11,12 +11,8 @@ input::-webkit-inner-spin-button , input::-webkit-outer-spin-button{
 }
 
 .shopping-vector{
-    background-image: url('./shopping-vector.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    object-fit: cover;
-    background-size: cover;
-    @apply w-6/12 h-96 p-32;
+    background-image: url('./shopping_vector.png');
+    @apply w-6/12 h-96 p-32 bg-cover object-cover bg-center bg-no-repeat;
 }
 
 /* Swiper */
