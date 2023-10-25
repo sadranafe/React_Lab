@@ -6,7 +6,7 @@ const ProductDetails = ({dummyData}) => {
     const navigate = useNavigate();
     const location = useLocation();
     const searchedProduct = location.pathname.split('/')[2]
-
+    
     const highlightedProduct = dummyData[searchedProduct - 1]
 
     useEffect( () => {
@@ -18,8 +18,8 @@ const ProductDetails = ({dummyData}) => {
 
     return (
         <>
-            <div className = "w-full p-0 m-0 h-screen flex flex-wrap justify-center items-center">
-                <HighLightedProduct title = {highlightedProduct.title} id = {highlightedProduct.id} description = {highlightedProduct.description} image = {highlightedProduct.images[0]} price = {highlightedProduct.price} rating = {highlightedProduct.rating}/>
+            <div className = "w-full p-0 m-0 h-screen flex flex-wrap justify-center items-center bg-neutral-50">
+                <HighLightedProduct title = {highlightedProduct.title} id = {highlightedProduct.id} description = {highlightedProduct.description} image = {highlightedProduct.image} price = {highlightedProduct.price} rating = {highlightedProduct.rating}/>
             </div>
         </>
     );

@@ -9,3 +9,77 @@
 input::-webkit-inner-spin-button , input::-webkit-outer-spin-button{
     appearance: none;
 }
+
+.shopping-vector{
+    background-image: url('./shopping-vector.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    object-fit: cover;
+    background-size: cover;
+    @apply w-6/12 h-96 p-32;
+}
+
+/* Swiper */
+
+.swiper-pagination-bullet-active{
+    @apply bg-gradient-to-br from-blue-400 to-pink-300;
+}
+
+.topRatedProduct::after{
+    @apply transition-all
+}
+
+
+/* skeleton Loader */
+.skeleton-loader {
+    background: linear-gradient(90deg, #eee 25%, #dedede 50%, #eee 75%);
+    background-size: 200% 100%;
+    animation: loading 3s infinite ease-in-out;
+}
+
+.cover-image-skeleton {
+    background: linear-gradient(90deg, #eee 25%, #dedede 50%, #eee 75%);
+    background-size: 200% 100%;
+    animation: loading 3s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+
+
+
+/* stepper */
+.step-item:not(:first-child)::before{
+    @apply content-[''] w-[100px] absolute h-[3px] bg-gray-300 top-1/3 right-[72%] z-10 -translate-y-2/4;
+}
+
+.step-item:nth-child(4)::before{
+    @apply w-[80px] right-[65%];
+}
+
+.step-item:nth-child(2)::before{
+    @apply w-[165px] right-[62%];
+}
+
+.active .step{
+    @apply bg-blue-600;
+}
+
+.complete .step{
+    @apply bg-green-600
+}
+
+.complete .step-title{
+    @apply text-gray-400;
+}
+
+.complete:not(:first-child)::before , .active:not(:first-child)::before{
+    @apply bg-green-600;
+}
