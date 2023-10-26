@@ -19,20 +19,9 @@ const Cart = () => {
     })
 
     useEffect( () => {
-        cartData.map( item => {
-            setTotalPrice( prevState => {
-                if(prevState === undefined){
-                    return (Number(item.price))
-                } else if (prevState !== undefined){
-
-                    if(deletedProducts === undefined){
-                        return (Number(prevState) + Number(item.price))
-                    } else{
-                        return (Number(prevState) - Number(deletedProducts.price))
-                    }
-                }
-            })
-        })
+        if(cartData.length !== 0){
+            setTotalPrice(cartData.reduce( (acc , cur) => (acc) + (cur.price * cur.quantity) , 0 ))
+        }
         
     },[cartData])    
 
