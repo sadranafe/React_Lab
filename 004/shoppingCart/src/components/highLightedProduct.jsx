@@ -19,16 +19,15 @@ const Target = styled(Image)`
 `;
 
 const HighLightedProduct = ( {title , price , description ,image , id , rating} ) => {
-    const { cartData , setCartData , setQuantity_Products } = useContext(CartContext);
-    
+    const { cartData , setCartData , setQuantity_Products } = useContext(CartContext);    
     const [offset , setOffset] = useState({left : 0 , top : 0});
     const [opacity , setOpacity] = useState(0);
-    const [quantity , setQuantity] = useState(enteredDataIsInCart ? enteredDataIsInCart.quantity : 1)
-    
+
     const enteredDataIsInCart = cartData.find( item => {
         return item.id === id
     })
     
+    const [quantity , setQuantity] = useState(enteredDataIsInCart ? enteredDataIsInCart.quantity : 1)
 
     // zoom Image :
     const mouseEnterHandler = () => {
