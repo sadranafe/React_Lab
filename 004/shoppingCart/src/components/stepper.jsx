@@ -62,8 +62,6 @@ const Stepper = ({ stepHandler }) => {
                     </Tooltip>
                 }
             </div>
-
-
         </>
     );
 };

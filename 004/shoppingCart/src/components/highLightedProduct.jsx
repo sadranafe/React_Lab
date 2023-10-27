@@ -1,6 +1,6 @@
+import { useContext , useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../contexts/cartContext';
-import { useContext , useEffect, useState } from 'react';
 import { Rating } from '@mui/material';
 import styled from 'styled-components';
 
@@ -23,12 +23,12 @@ const HighLightedProduct = ( {title , price , description ,image , id , rating} 
     
     const [offset , setOffset] = useState({left : 0 , top : 0});
     const [opacity , setOpacity] = useState(0);
+    const [quantity , setQuantity] = useState(enteredDataIsInCart ? enteredDataIsInCart.quantity : 1)
     
     const enteredDataIsInCart = cartData.find( item => {
         return item.id === id
     })
     
-    const [quantity , setQuantity] = useState(enteredDataIsInCart ? enteredDataIsInCart.quantity : 1)
 
     // zoom Image :
     const mouseEnterHandler = () => {
@@ -46,8 +46,8 @@ const HighLightedProduct = ( {title , price , description ,image , id , rating} 
     const mouseMoveHandler = (e) => {        
         const {left , top , width , height } = e.target.getBoundingClientRect()
 
-        const x = (e.pageX - left) / width * 100
-        const y = (e.pageY - top) / height * 100
+        const x = (e.pageX - left) / width * 120
+        const y = (e.pageY - top) / height * 120
         
         setOffset({ left: -x, top: -y });
     }

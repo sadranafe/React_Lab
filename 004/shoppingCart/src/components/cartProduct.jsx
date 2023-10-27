@@ -1,13 +1,6 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import CartContext from "../contexts/cartContext";
 
-const CartProduct = ({img , title , price , id , quantity , index , onDelete}) => {
-    const {cartData , setCartData} = useContext(CartContext)
-
-    const deleteHandler = () => {
-        onDelete();
-    }
+const CartProduct = ({img , title , price , id , quantity , onDelete}) => {
     
     return (
         <>
@@ -35,7 +28,7 @@ const CartProduct = ({img , title , price , id , quantity , index , onDelete}) =
                 </Link>
 
                 <div className = 'absolute right-3 top-4'>
-                    <button className = 'text-xl p-1 px-2 hover:text-red-600 transition-all' onClick = {deleteHandler}>
+                    <button className = 'text-xl p-1 px-2 hover:text-red-600 transition-all' onClick = {() => onDelete()}>
                         <i className = 'bx bx-x'></i>
                     </button>
                 </div>

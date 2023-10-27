@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { Pagination } from "swiper/modules";
 import { Swiper , SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import CardInfoItem from "../components/cardInfoItem";
 import DummyCardInfo from "../dummy_data/dummyCardInfo";
 import DummyReviews from "../dummy_data/dummyReviews";
+import CardInfoItem from "../components/cardInfoItem";
 import ReviewItems from "../components/review/reviewItems";
-import axios from "axios";
 import TopRatedProducts from "../components/topRatedProduct/topRatedProducts";
 
 const Home = () => {

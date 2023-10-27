@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import axios from 'axios'
 
 import Product from '../components/product';
@@ -12,10 +11,6 @@ const Products = () => {
     const [filteredView , setFilteredView] = useState('all')
    
     const controller = new AbortController();
-
-    const location = useLocation();
-    const searchedQuery = location.search.split('=')[1]
-
 
     useEffect( () =>{
         axios.get("https://fakestoreapi.com/products" , {signal : controller.signal})
@@ -31,20 +26,6 @@ const Products = () => {
             controller.abort();
         }
     },[DUMMYDATA.length])
-
-    useEffect(() => {
-        if(searchedQuery === undefined){
-            setFilteredView('all')
-        } else{
-            if(searchedQuery === 'men'){
-                setFilteredView("men's clothing")
-            } else if (searchedQuery === 'women'){
-                setFilteredView("women's clothing")
-            } else{
-                setFilteredView(searchedQuery)
-            }
-        }
-    },[searchedQuery])
 
     const filteredProductsHandler = filteredData => {
         setFilteredView(filteredData)
@@ -77,14 +58,13 @@ const Products = () => {
                 </div>
 
                 {
-                    filteredProduct.map( item =>{
-                        if(isLoading){
-                            return <SkeletonLoader key = {item.id}/>
-                        } else{
-                            return <Product key = {item.id} onFilterHandler = {filteredProductsHandler} id = {item.id} title = {item.title} img = {item.image} price = {item.price} category = {item.category}/>    
-                        }
-                    }
-                    )
+                    isLoading ?
+                    <SkeletonLoader length = {4} /> :
+                    filteredProduct.map( item => {
+                        return(
+                            <Product key = {item.id} onFilterHandler = {filteredProductsHandler} id = {item.id} title = {item.title} img = {item.image} price = {item.price} category = {item.category}/>
+                        )
+                    })
                 }
             </div>
 

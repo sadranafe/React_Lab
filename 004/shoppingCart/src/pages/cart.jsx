@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import toast , { Toaster } from "react-hot-toast";
 import CartContext from '../contexts/cartContext';
+
 import CartProduct from '../components/cartProduct';
 import Stepper from '../components/stepper';
 import ReviewCart from '../components/review/reviewCart';

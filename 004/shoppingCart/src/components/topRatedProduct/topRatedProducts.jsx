@@ -18,15 +18,12 @@ const TopRatedProducts = ({ data }) => {
 
             <div className = "w-full flex flex-wrap justify-center items-center">
                 {
+                    isLoading ?
+                        <SkeletonLoader length = {5}/>:
                     data.map(item => {
-                        if (isLoading) {
-                            return (
-                                <SkeletonLoader key = {item.id}/>
-                            )
-                        } else {
-                            return ( <TopRatedProductItem key = {item.id} id = {item.id} img = {item.image} rating = {item.rating} />)
-                        }
-                    }
+                        return (
+                            <TopRatedProductItem key = {item.id} id = {item.id} img = {item.image} rating = {item.rating} />
+                        )}
                     )
                 }
             </div>

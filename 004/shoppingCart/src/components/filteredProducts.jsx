@@ -1,12 +1,7 @@
-import { useNavigate } from "react-router-dom";
-
 const FilteredProducts = ({onFilterHandler , selectedView}) => {
-    const naviage = useNavigate();
 
     const optionHandler = ev => {
         onFilterHandler(ev.target.value)
-
-        naviage('/products' , {replace : true})
     }
     return (
         <>
